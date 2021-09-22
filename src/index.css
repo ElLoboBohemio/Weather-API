@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+  .label{
+    @apply font-bold text-gray-100;
+  }
+
+  .input-text{
+    @apply bg-transparent border-b-2 outline-none text-gray-100;
+  }
+
+  .span-error{
+    @apply text-xs font-semibold italic text-yellow-400;
+  }
+
+  .cold-gradient{
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600;
+  }
+
+  .warm-gradient{
+    @apply bg-gradient-to-r from-yellow-500 to-red-500;
+  }
+}

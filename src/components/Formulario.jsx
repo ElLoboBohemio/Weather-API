@@ -10,25 +10,37 @@ function Formulario(props) {
 
   return (
     <form onSubmit={handleSubmit(props.onSubmit)}>
-      <label>City Name</label>
+      <label className="label">City Name</label>
       <br />
-      <input {...register("Ciudad", { required: true })} />
+      <input
+        className="input-text"
+        placeholder="London"
+        {...register("Ciudad", { required: true })}
+      />
       <br />
-      {errors.Ciudad && <span>*This field is required</span>}
-      <br />
-      <br />
-
-      <label>
-        State Code<span> Example: UK (United Kindom)</span>
-      </label>
-      <br />
-      <input {...register("Iniciales", { required: true })} />
-      <br />
-      {errors.Iniciales && <span>*This field is required</span>}
+      {errors.Ciudad && <span className="span-error">*This field is required</span>}
       <br />
       <br />
 
-      <input type="submit" />
+      <label className="label ">State Code</label>
+      <br />
+      <input
+        className="input-text"
+        placeholder="UK"
+        {...register("Iniciales", { required: true })}
+      />
+      <br />
+      {errors.Iniciales && <span className="span-error">*This field is required</span>}
+      <br />
+      <br />
+
+      <input
+        className="w-full rounded-md font-semibold bg-yellow-400 text-blue-800 "
+        type="submit"
+        value="Weather!"
+      />
+      <br />
+      <br />
     </form>
   );
 }

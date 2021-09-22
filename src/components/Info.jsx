@@ -9,7 +9,7 @@ const Info = (props) => {
           <p>
             {props.error.charAt(0).toUpperCase() + props.error.slice(1)} : ( <br />
             <br />
-            <span>Check "City Name" and "State Code" are written correctly.</span>
+            <span>Check mispelling.</span>
           </p>
         )
       }
@@ -17,14 +17,33 @@ const Info = (props) => {
       {props.temperature ? (
         <div>
           {props.country && props.city && (
-            <p>
-              Location: {props.country}, {props.city}
+            <p className="text-gray-100">
+              <span className="font-semibold">Location: </span>
+              {props.country}, {props.city}
             </p>
           )}
-          {props.temperature && <p>Temperature: {props.temperature} ℃</p>}
-          {props.description && <p>Description: {props.description}</p>}
-          {props.humidity && <p>Humidity: {props.humidity}%</p>}
-          {props.wind_speed && <p>Wind Speed: {props.wind_speed} Km/h</p>}
+          {props.temperature && (
+            <p className="text-gray-100">
+              <span className="font-semibold">Temperature: </span>
+              {props.temperature} ℃
+            </p>
+          )}
+          {props.description && (
+            <p className="text-gray-100">
+              <span className="font-semibold">Description: </span>
+              {props.description.charAt(0).toUpperCase() + props.description.slice(1)}
+            </p>
+          )}
+          {props.humidity && (
+            <p className="text-gray-100">
+              <span className="font-semibold">Humidity:</span> {props.humidity}%
+            </p>
+          )}
+          {props.wind_speed && (
+            <p className="text-gray-100">
+              <span className="font-semibold">Wind Speed:</span> {props.wind_speed} Km/h
+            </p>
+          )}
         </div>
       ) : (
         <div>
