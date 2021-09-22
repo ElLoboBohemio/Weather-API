@@ -1,2 +1,0 @@
-.env No Oculta la Key
-Redux para tener un state en "Formulario.jsx" y poder cambiar colores del submit
