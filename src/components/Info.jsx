@@ -6,7 +6,7 @@ const Info = (props) => {
       {
         //IF Error
         props.error && (
-          <p>
+          <p className="text-gray-100">
             {props.error.charAt(0).toUpperCase() + props.error.slice(1)} : ( <br />
             <br />
             <span>Check mispelling.</span>
