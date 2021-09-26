@@ -1,6 +1,6 @@
 {
-  "name": "clima",
-  "version": "0.1.0",
+  "name": "clima-api",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.3.0",

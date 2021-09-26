@@ -13,7 +13,15 @@ const Info = (props) => {
           </p>
         )
       }
-
+      {props.icon && props.description && (
+        <p className="text-gray-100 flex justify-center items-center">
+          <img
+            src={`https://openweathermap.org/img/wn/${props.icon}.png`}
+            alt={props.description}
+          />
+          {props.description.charAt(0).toUpperCase() + props.description.slice(1)}
+        </p>
+      )}
       {props.temperature ? (
         <div>
           {props.country && props.city && (
@@ -28,12 +36,7 @@ const Info = (props) => {
               {props.temperature} ℃
             </p>
           )}
-          {props.description && (
-            <p className="text-gray-100">
-              <span className="font-semibold">Description: </span>
-              {props.description.charAt(0).toUpperCase() + props.description.slice(1)}
-            </p>
-          )}
+
           {props.humidity && (
             <p className="text-gray-100">
               <span className="font-semibold">Humidity:</span> {props.humidity}%
@@ -46,9 +49,7 @@ const Info = (props) => {
           )}
         </div>
       ) : (
-        <div>
-          <i></i>
-        </div>
+        <div></div>
       )}
     </div>
   );

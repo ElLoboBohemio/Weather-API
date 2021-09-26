@@ -18,7 +18,15 @@ function Formulario(props) {
         {...register("Ciudad", { required: true })}
       />
       <br />
-      {errors.Ciudad && <span className="span-error">*This field is required</span>}
+      {errors.Ciudad && (
+        <span
+          className={` ${
+            props.temperature >= 18 ? "span-error-warm" : "span-error-cold"
+          }`}
+        >
+          *This field is required
+        </span>
+      )}
       <br />
       <br />
 
@@ -30,12 +38,22 @@ function Formulario(props) {
         {...register("Iniciales", { required: true })}
       />
       <br />
-      {errors.Iniciales && <span className="span-error">*This field is required</span>}
+      {errors.Iniciales && (
+        <span
+          className={` ${
+            props.temperature >= 18 ? "span-error-warm" : "span-error-cold"
+          }`}
+        >
+          *This field is required
+        </span>
+      )}
       <br />
       <br />
 
       <input
-        className="w-full rounded-md font-semibold bg-yellow-400 text-blue-800 "
+        className={`w-full rounded-md font-semibold ${
+          props.temperature >= 18 ? "btn-warm" : "btn-cold"
+        }`}
         type="submit"
         value="Weather!"
       />

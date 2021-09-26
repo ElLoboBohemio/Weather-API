@@ -22,6 +22,7 @@ class App extends Component {
     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${inicial}&appid=${process.env.REACT_APP_KEY}&units=metric`;
     const res = await fetch(API_URL);
     const data = await res.json();
+    console.log(data);
 
     if (!data.message) {
       this.setState({
@@ -31,6 +32,7 @@ class App extends Component {
         wind_speed: data.wind.speed,
         city: data.name,
         country: data.sys.country,
+        icon: data.weather[0].icon,
 
         error: "",
       });
@@ -51,8 +53,8 @@ class App extends Component {
   render() {
     return (
       <main
-        className={`h-screen flex flex-col items-center ${
-          this.state.temperature >= 18 ? "warm-gradient" : "cold-gradient"
+        className={`h-screen flex flex-col items-center  ${
+          this.state.temperature >= 18 ? "warm-gradient " : "cold-gradient "
         }`}
       >
         <div
@@ -60,10 +62,14 @@ class App extends Component {
             this.state.temperature >= 18 ? "bg-yellow-800" : "bg-indigo-800"
           }`}
         >
-          <h1 className="text-2xl font-bold text-yellow-400 text-center mb-5">
+          <h1
+            className={`text-2xl font-bold text-center mb-5 ${
+              this.state.temperature >= 18 ? "text-blue-500" : "text-yellow-400"
+            }`}
+          >
             Weather App
           </h1>
-          <Formulario onSubmit={this.onSubmit} />
+          <Formulario onSubmit={this.onSubmit} temperature={this.state.temperature} />
           <Info {...this.state} />
         </div>
       </main>
